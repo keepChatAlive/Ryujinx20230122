@@ -39,7 +39,7 @@ namespace Ryujinx.Graphics.Vulkan
             _pipeline = new PipelineHelperShader(gd, device);
             _pipeline.Initialize();
 
-            _samplerLinear = gd.CreateSampler(GAL.SamplerCreateInfo.Create(MinFilter.Linear, MagFilter.Linear));
+            _samplerLinear = gd.CreateSampler(GAL.SamplerCreateInfo.Create(MinFilter.Nearest, MagFilter.Nearest));
             _samplerNearest = gd.CreateSampler(GAL.SamplerCreateInfo.Create(MinFilter.Nearest, MagFilter.Nearest));
 
             var colorBlitVertexBindings = new ShaderBindings(
@@ -189,7 +189,7 @@ namespace Ryujinx.Graphics.Vulkan
 
             const int RegionBufferSize = 16;
 
-            var sampler = linearFilter ? _samplerLinear : _samplerNearest;
+            var sampler = _samplerNearest;
 
             _pipeline.SetTextureAndSampler(ShaderStage.Fragment, 0, src, sampler);
 
