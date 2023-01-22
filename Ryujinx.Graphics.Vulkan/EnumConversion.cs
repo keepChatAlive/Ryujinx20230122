@@ -146,7 +146,7 @@ namespace Ryujinx.Graphics.Vulkan
             return filter switch
             {
                 MagFilter.Nearest => Filter.Nearest,
-                MagFilter.Linear => Filter.Linear,
+                MagFilter.Linear => Filter.Nearest,
                 _ => LogInvalidAndReturn(filter, nameof(MagFilter), Filter.Nearest)
             };
         }
@@ -156,11 +156,11 @@ namespace Ryujinx.Graphics.Vulkan
             return filter switch
             {
                 MinFilter.Nearest => (Filter.Nearest, SamplerMipmapMode.Nearest),
-                MinFilter.Linear => (Filter.Linear, SamplerMipmapMode.Nearest),
+                MinFilter.Linear => (Filter.Nearest, SamplerMipmapMode.Nearest),
                 MinFilter.NearestMipmapNearest => (Filter.Nearest, SamplerMipmapMode.Nearest),
-                MinFilter.LinearMipmapNearest => (Filter.Linear, SamplerMipmapMode.Nearest),
-                MinFilter.NearestMipmapLinear => (Filter.Nearest, SamplerMipmapMode.Linear),
-                MinFilter.LinearMipmapLinear => (Filter.Linear, SamplerMipmapMode.Linear),
+                MinFilter.LinearMipmapNearest => (Filter.Nearest, SamplerMipmapMode.Nearest),
+                MinFilter.NearestMipmapLinear => (Filter.Nearest, SamplerMipmapMode.Nearest),
+                MinFilter.LinearMipmapLinear => (Filter.Nearest, SamplerMipmapMode.Nearest),
                 _ => LogInvalidAndReturn(filter, nameof(MinFilter), (Filter.Nearest, SamplerMipmapMode.Nearest))
             };
         }
