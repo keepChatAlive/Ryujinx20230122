@@ -89,9 +89,7 @@ namespace Ryujinx.Graphics.OpenGL.Image
                         linearFilter = false;
                     }
 
-                    BlitFramebufferFilter filter = linearFilter
-                        ? BlitFramebufferFilter.Linear
-                        : BlitFramebufferFilter.Nearest;
+                    BlitFramebufferFilter filter = BlitFramebufferFilter.Nearest;
 
                     GL.ReadBuffer(ReadBufferMode.ColorAttachment0);
                     GL.DrawBuffer(DrawBufferMode.ColorAttachment0);
