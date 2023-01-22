@@ -255,39 +255,11 @@ namespace Ryujinx.Graphics.OpenGL
 
         public static TextureMagFilter Convert(this MagFilter filter)
         {
-            switch (filter)
-            {
-                case MagFilter.Nearest:
-                    return TextureMagFilter.Nearest;
-                case MagFilter.Linear:
-                    return TextureMagFilter.Linear;
-            }
-
-            Logger.Debug?.Print(LogClass.Gpu, $"Invalid {nameof(MagFilter)} enum value: {filter}.");
-
             return TextureMagFilter.Nearest;
         }
 
         public static TextureMinFilter Convert(this MinFilter filter)
         {
-            switch (filter)
-            {
-                case MinFilter.Nearest:
-                    return TextureMinFilter.Nearest;
-                case MinFilter.Linear:
-                    return TextureMinFilter.Linear;
-                case MinFilter.NearestMipmapNearest:
-                    return TextureMinFilter.NearestMipmapNearest;
-                case MinFilter.LinearMipmapNearest:
-                    return TextureMinFilter.LinearMipmapNearest;
-                case MinFilter.NearestMipmapLinear:
-                    return TextureMinFilter.NearestMipmapLinear;
-                case MinFilter.LinearMipmapLinear:
-                    return TextureMinFilter.LinearMipmapLinear;
-            }
-
-            Logger.Debug?.Print(LogClass.Gpu, $"Invalid {nameof(MinFilter)} enum value: {filter}.");
-
             return TextureMinFilter.Nearest;
         }
 
