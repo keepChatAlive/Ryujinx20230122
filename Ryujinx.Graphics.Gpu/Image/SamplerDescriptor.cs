@@ -156,33 +156,6 @@ namespace Ryujinx.Graphics.Gpu.Image
         /// <returns>The combined, host API compatible filter enum</returns>
         private static MinFilter ConvertFilter(SamplerMinFilter minFilter, SamplerMipFilter mipFilter)
         {
-            switch (mipFilter)
-            {
-                case SamplerMipFilter.None:
-                    switch (minFilter)
-                    {
-                        case SamplerMinFilter.Nearest: return MinFilter.Nearest;
-                        case SamplerMinFilter.Linear:  return MinFilter.Linear;
-                    }
-                    break;
-
-                case SamplerMipFilter.Nearest:
-                    switch (minFilter)
-                    {
-                        case SamplerMinFilter.Nearest: return MinFilter.NearestMipmapNearest;
-                        case SamplerMinFilter.Linear:  return MinFilter.LinearMipmapNearest;
-                    }
-                    break;
-
-                case SamplerMipFilter.Linear:
-                    switch (minFilter)
-                    {
-                        case SamplerMinFilter.Nearest: return MinFilter.NearestMipmapLinear;
-                        case SamplerMinFilter.Linear:  return MinFilter.LinearMipmapLinear;
-                    }
-                    break;
-            }
-
             return MinFilter.Nearest;
         }
 
